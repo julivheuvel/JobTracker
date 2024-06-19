@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "New Job";
+}
+
+@model Job
+
+<div class="container">
+    <h2>New Job</h2>
+
+    <form
+        class="shadow p-3 rounded"
+        asp-controller="Job"
+        asp-action="CreateJob"
+        method="POST">
+
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <span asp-validation-for="Name" class="text-danger font-weight bold"></span>
+            <input asp-for="Name" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Company"></label>
+            <span asp-validation-for="Company" class="text-danger font-weight bold"></span>
+            <input asp-for="Company" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Location"></label>
+            <span asp-validation-for="Location" class="text-danger font-weight bold"></span>
+            <input asp-for="Location" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <span asp-validation-for="Description" class="text-danger font-weight bold"></span>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="SalaryMin">Salary Minimum</label>
+            <span asp-validation-for="SalaryMin" class="text-danger font-weight bold"></span>
+            <input asp-for="SalaryMin" type=number class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="SalaryMax">Salary Maximum</label>
+            <span asp-validation-for="SalaryMax" class="text-danger font-weight bold"></span>
+            <input asp-for="SalaryMax" type=number class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ApplicationDate"></label>
+            <span asp-validation-for="ApplicationDate" class="text-danger font-weight bold"></span>
+            <input type="date" asp-for="ApplicationDate" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Link">Link for Job</label>
+            <span asp-validation-for="Link" class="text-danger font-weight bold"></span>
+            <input asp-for="Link" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Travel">Travel involved?</label>
+            <span asp-validation-for="Travel" class="text-danger font-weight bold"></span>
+            <input asp-for="Travel" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Team"></label>
+            <span asp-validation-for="Team" class="text-danger font-weight bold"></span>
+            <input asp-for="Team" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Applied"></label>
+            <span asp-validation-for="Applied" class="text-danger font-weight bold"></span>
+            <div class="d-flex gap-3">
+                <div>
+                    <label>Yes</label>
+                    <input type=radio value="true" asp-for="Applied" class="form-check-input"/>
+                </div>
+                <div>
+                    <label>No</label>
+                    <input type=radio value="false" asp-for="Applied" class="form-check-input"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="SalaryOffer"></label>
+            <span asp-validation-for="SalaryOffer" class="text-danger font-weight bold"></span>
+            <input asp-for="SalaryOffer" type="number" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Benefits"></label>
+            <span asp-validation-for="Benefits" class="text-danger font-weight bold"></span>
+            <textarea asp-for="Benefits" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-success">Add!</button>
+    </form>
+</div>

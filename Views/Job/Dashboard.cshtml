@@ -1,0 +1,82 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@model List<Job>
+
+
+<div class="container">
+    <h2 class="text-center">All Jobs</h2>
+
+    @* <form
+        asp-asp-controller="Job"
+        asp-action="Dashboard"
+        method="GET"
+    >
+    </form> *@
+
+    <table class="d-flex flex-column ">
+        <thead>
+            <tr class="d-flex border">
+                <th class="w-50 text-center">Name</th>
+                <th class="w-50 text-center">Company</th>
+                <th class="w-50 text-center">Location</th>
+                <th class="w-50 text-center">Description</th>
+                <th class="w-50 text-center">Salary Min</th>
+                <th class="w-50 text-center">Salary Max</th>
+                <th class="w-50 text-center">Application Date</th>
+                <th class="w-50 text-center">Link</th>
+                <th class="w-50 text-center">Travel</th>
+                <th class="w-50 text-center">Team</th>
+                <th class="w-50 text-center">Applied</th>
+                <th class="w-50 text-center">Salary Offered</th>
+                <th class="w-50 text-center">Accepted</th>
+                <th class="w-50 text-center">Denied</th>
+                <th class="w-50 text-center">Benefits</th>
+
+                <th class="w-50 text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Job j in Model)
+            {
+                <tr class="d-flex justify-content-center w-100 border">
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">
+                        <a href="/job/@j.JobId/view">@j.Name</a>
+                    </td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Company</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Location</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Description</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">$@j.SalaryMin</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">$@j.SalaryMax</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.ApplicationDate</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Link</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Travel</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Team</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Applied</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">$@j.SalaryOffer</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Accepted</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Denied</td>
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center">@j.Benefits</td>
+
+
+                    <td class="w-50 text-center border d-flex justify-content-center align-items-center" class="d-flex gap-2">
+                        @if(j.UserId == Context.Session.GetInt32("UUID"))
+                        {
+                            <form
+                                asp-controller="Job"
+                                asp-action="DeleteJob"
+                                asp-route-deletedJobId="@j.JobId"
+                                method="POST">
+                                <button class="text-danger bg-transparent border-0 p-0">Delete</button>
+                            </form>
+                            <a href="/job/@j.JobId/edit" class="text-warning text-decoration-none">Edit</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>

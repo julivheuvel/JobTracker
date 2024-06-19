@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "New Interview";
+}
+
+@model ParentViewModel
+
+
+
+<div class="container">
+    <div class="text-muted">@Model.Job.Name at @Model.Job.Company</div>
+    <h2>New Interview</h2>
+
+    <form
+        class="shadow p-3 rounded"
+        asp-controller="Interview"
+        asp-action="CreateInterview"
+        asp-route-jobId="@Model.Job.JobId"
+        method="POST">
+
+        <div class="mb-3">
+            <label asp-for="@Model.Interview.Name"></label>
+            <span asp-validation-for="@Model.Interview.Name" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Interview.Name" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Interview.Location"></label>
+            <span asp-validation-for="@Model.Interview.Location" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Interview.Location" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Interview.Description"></label>
+            <span asp-validation-for="@Model.Interview.Description" class="text-danger font-weight bold"></span>
+            <textarea asp-for="@Model.Interview.Description" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Interview.FollowUp">Follow Up</label>
+            <span asp-validation-for="@Model.Interview.FollowUp" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Interview.FollowUp" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Interview.LengthOfTime">Duration</label>
+            <span asp-validation-for="@Model.Interview.LengthOfTime" class="text-danger font-weight bold"></span>
+            <input type="number" asp-for="@Model.Interview.LengthOfTime" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Interview.InterviewDate">Interview Date</label>
+            <span asp-validation-for="@Model.Interview.InterviewDate" class="text-danger font-weight bold"></span>
+            <input type="date" asp-for="@Model.Interview.InterviewDate" class="form-control"/>
+        </div>
+
+        <button class="btn btn-success">Add!</button>
+    </form>
+</div>

@@ -1,0 +1,106 @@
+@{
+    ViewData["Title"] = "Edit Job";
+}
+
+@model Job
+
+<div class="container">
+    <h2>Edit Job</h2>
+
+    <form
+        class="shadow p-3 rounded"
+        asp-controller="Job"
+        asp-action="UpdateJob"
+        asp-route-jobId="@Model.JobId"
+        method="POST">
+
+        <div class="mb-3">
+            <label asp-for="@Model.Name"></label>
+            <span asp-validation-for="@Model.Name" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Name" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.Company"></label>
+            <span asp-validation-for="@Model.Company" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Company" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.Location"></label>
+            <span asp-validation-for="@Model.Location" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Location" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.Description"></label>
+            <span asp-validation-for="@Model.Description" class="text-danger font-weight bold"></span>
+            <textarea asp-for="@Model.Description" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.SalaryMin">Salary Minimum</label>
+            <span asp-validation-for="@Model.SalaryMin" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.SalaryMin" type=number class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.SalaryMax">Salary Maximum</label>
+            <span asp-validation-for="@Model.SalaryMax" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.SalaryMax" type=number class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.ApplicationDate"></label>
+            <span asp-validation-for="@Model.ApplicationDate" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.ApplicationDate" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.Link">Link for Job</label>
+            <span asp-validation-for="@Model.Link" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Link" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.Travel">Travel involved?</label>
+            <span asp-validation-for="@Model.Travel" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Travel" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.Team"></label>
+            <span asp-validation-for="@Model.Team" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.Team" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.Applied"></label>
+            <span asp-validation-for="@Model.Applied" class="text-danger font-weight bold"></span>
+            <div class="d-flex gap-3">
+                <div>
+                    <label>Yes</label>
+                    <input type=radio value="true" asp-for="@Model.Applied" class="form-check-input"/>
+                </div>
+                <div>
+                    <label>No</label>
+                    <input type=radio value="false" asp-for="@Model.Applied" class="form-check-input"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.SalaryOffer"></label>
+            <span asp-validation-for="@Model.SalaryOffer" class="text-danger font-weight bold"></span>
+            <input asp-for="@Model.SalaryOffer" type="number" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="@Model.Benefits"></label>
+            <span asp-validation-for="@Model.Benefits" class="text-danger font-weight bold"></span>
+            <textarea asp-for="@Model.Benefits" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-success">Add!</button>
+    </form>
+</div>
